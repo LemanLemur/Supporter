@@ -5,7 +5,6 @@ import HomePage from "./Components/HomePage";
 import SignOutPage from "./Components/SignOutPage";
 import ProfilePage from "./Components/ProfilePage";
 import SupportPage from "./Components/SupportPage";
-import { Typography } from "@material-ui/core";
 
 function Index() {
   return <HomePage></HomePage>;
@@ -33,7 +32,7 @@ function AppRouter() {
         <nav>
           <PrimarySearchAppBar></PrimarySearchAppBar>
         </nav>
-
+        <Route path="/" component={Index} />
         <Route path="/home/" component={Index} />
         <Route path="/profile/" component={Profile} />
         <Route path="/support/" component={Support} />
