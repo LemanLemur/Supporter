@@ -147,7 +147,7 @@ export default function SupportPage(props) {
             </Grid>
 
             <Grid item xs={4}>
-              <ShareFb url={"http://localhost:3000/supportpage/"+props.id}></ShareFb>
+              <ShareFb url={"https://hardcore-benz-a75902.netlify.com/supportpage/"+props.id}></ShareFb>
               <UserInfo id={homeData[props.id].owner}></UserInfo>
             </Grid>
             </Grid>
