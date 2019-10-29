@@ -32,7 +32,7 @@ function AppRouter() {
         <nav>
           <PrimarySearchAppBar></PrimarySearchAppBar>
         </nav>
-        <Route path="/" component={Index} />
+        <Route exact path="/" component={Index} />
         <Route path="/home/" component={Index} />
         <Route path="/profile/" component={Profile} />
         <Route path="/support/" component={Support} />
