@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link} from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import PrimarySearchAppBar from "./Components/TopNav";
 import HomePage from "./Components/HomePage";
 import SignOutPage from "./Components/SignOutPage";
@@ -15,10 +15,7 @@ function Profile() {
 }
 
 function Support(props) {
-
-  return (
-  <SupportPage id={props.match.params.id}></SupportPage>
-    );
+  return <SupportPage id={props.match.params.id}></SupportPage>;
 }
 
 function SignOut() {

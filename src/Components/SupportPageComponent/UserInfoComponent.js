@@ -8,7 +8,7 @@ import CloseIcon from '@material-ui/icons/Close';
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
-    marginTop: "20px",
+    marginTop: "10px",
     marginLeft: "auto",
     marginRight: "auto",
   },
@@ -22,7 +22,6 @@ const useStyles = makeStyles(theme => ({
     marginTop: "20px",
     fontSize: "20px",
     fontFamily: "Georgia",
-    // color: "#3f51b5",
   },
   auth: {
     marginTop: "10px",
@@ -40,7 +39,7 @@ export default function UserInfo(props) {
         <Paper>
         <center>
 
-        <center><img src={users[props.id].avatar} className={classes.avatarImg}/></center>
+        <center><img src={users[props.id].avatar} className={classes.avatarImg} alt="avatar"/></center>
 
         <center><p className={classes.name}>{users[props.id].name}</p></center>
 

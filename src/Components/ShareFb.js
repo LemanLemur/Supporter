@@ -29,7 +29,7 @@ export default function ShareFb(props) {
       <center>
         {/* <Typography color="secondary">Udostępnij tę akcję!</Typography>
         <br></br> */}
-      <img className={classes.socialImg} src="https://image.flaticon.com/icons/svg/174/174848.svg"/>
+      <img className={classes.socialImg} src="https://image.flaticon.com/icons/svg/174/174848.svg" alt="Facebook share"/>
       <FacebookProvider appId="2404865756278315">
         <Share href={props.url}>
           {({ handleClick, loading }) => (

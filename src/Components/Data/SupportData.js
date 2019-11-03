@@ -9,7 +9,26 @@ const data = [
       contentTitle: "Zbiórka dla biednych kotków ze schroniska!",
       content: "Luty to całkiem dobry miesiąc dla Kotkowa. Nowego domu szuka teraz tylko około dziesięciu kotów. Nie to co latem, gdy rodzi się mnóstwo małych kociaków. Wtedy jednorazowo pomocy potrzebuje ich nawet ponad setka. A domów tymczasowych, gdzie można im dać schronienie, jest dziesięć. Ale żaden potrzebujący zwierzak nigdy nie zostanie bez pomocy. Nawet gdy oznacza to, że tymczasowy opiekun będzie ich miał wtedy 10 czy 12 jednocześnie. Białostockie Kotkowo to grupa zapaleńców i miłośników futrzaków, którzy w swoim wolnym czasie zupełnie bezinteresownie ratują koty. Zarówno te dopiero co urodzone, w piwnicy czy na działce, jak i nieco starsze, które rozpaczliwie potrzebują pomocy. I sterylizują te, które świetnie sobie radzą na wolności, aby zapobiegać kociej bezdomności. Przez ostatnie kilka lat Kotkowo (najpierw jako nieformalna grupa, teraz już jako fundacja) pomogło około 2 tysiącom kotów! Zaczęło się od Noki. Założycielka Kotkowa, Agata Kilon, ma w swoim mieszkaniu cztery dachowce. Wszystkie uratowane od niechybnej śmierci. Choć jeszcze kilka lat temu nie wyobrażała sobie, że tak potoczą się jej losy. - Wszystko zaczęło się w roku 2002. To wtedy w naszym życiu pojawiła się Nokia. Znalazłam ją w piwnicy, była malutka, biedna, nieszczęśliwa. Gdy już się odkarmiła i wydobrzała, pokazała swój charakter. Okazało się, że jest to najwredniejsza kotka jaką znamy - opowiada Agata. - Ale tak to chyba jest jak kota się sobie wybiera, bo to kot powinien sobie nas wybrać ",
       label: "home",
-      owner: 0
+      owner: 0,
+      awardsTitle: "Nagrody",
+      awards: [
+        {
+          goal: 1000,
+          content: "Nowy box dla biednych kotków",
+        },
+        {
+          goal: 100,
+          content: "Koce do spania dla kotków",
+        },
+        {
+          goal: 50,
+          content: "Karma dla kotków",
+        },
+        {
+          goal: 10,
+          content: "Kocie przysmaki",
+        },
+      ]
     },
     {
       id: 1,
