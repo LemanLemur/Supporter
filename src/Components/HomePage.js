@@ -5,11 +5,17 @@ import HomeGridList from './HomeListGrid';
 import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles(theme => ({
+  mainDiv:{
+    marginTop: "80px"
+  },
   root: {
     padding: theme.spacing(3, 2),
     width: "75%",
     marginTop: "20px",
     marginBottom: "20px",
+    [theme.breakpoints.down("sm")]: {
+      width: "90%"
+    }
   },
   m: {
     marginBottom: '20px',
@@ -35,7 +41,7 @@ export default function HomePage() {
   const classes = useStyles();
 
   return (
-    <div>
+    <div className={classes.mainDiv}>
       <PaperSheet className={classes.m}></PaperSheet>
       
       <center>

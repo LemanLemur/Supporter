@@ -241,12 +241,14 @@ export default function PrimarySearchAppBar() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
+      {signIN ? (<Link to="/profile" className={classes.navLink}><MenuItem> Profil </MenuItem></Link>) : ""}
+      {signIN ? (<Link to="/singout" className={classes.navLink}><MenuItem onClick={handleSignOut}>  Wyloguj </MenuItem></Link>) : ""}
     </Menu>
   );
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static">
+      <AppBar>
         <Toolbar>
             <TemporaryDrawer />
           <Typography className={classes.title} variant="h6" noWrap>

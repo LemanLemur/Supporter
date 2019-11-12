@@ -2,9 +2,6 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import supportData from "../Data/SupportData";
 import { Divider, Paper, Typography } from "@material-ui/core";
-import CheckIcon from "@material-ui/icons/Check";
-import CloseIcon from "@material-ui/icons/Close";
-import color from "@material-ui/core/colors/cyan";
 
 const useStyles = makeStyles(theme => ({
   root: {

@@ -21,6 +21,9 @@ const useStyles = makeStyles(theme => ({
       display: "none"
     }
   },
+  mainDiv:{
+    marginTop: "80px"
+  },
   root: {
     padding: theme.spacing(3, 2),
     width: "60%",
@@ -131,7 +134,7 @@ export default function SupportPage(props) {
   const classes = useStyles();
 
   return (
-    <div>
+    <div className={classes.mainDiv}>
       <div align="center">
         <Typography className={classes.title}>
           {homeData[props.id].title}

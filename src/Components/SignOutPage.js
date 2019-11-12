@@ -20,6 +20,9 @@ const useStyles = makeStyles(theme => ({
     width: "50%",
     marginTop: "50px",
   },
+  mainDiv:{
+    marginTop: "80px"
+  },
   margin: {
     margin: theme.spacing(1),
   },
@@ -62,7 +65,6 @@ function FormDialog() {
             fullWidth
           />
           <TextField
-            autoFocus
             margin="dense"
             id="Hasło"
             label="Hasło"
@@ -87,7 +89,7 @@ export default function SignOutPage() {
   const classes = useStyles();
 
   return (
-    <div>
+    <div className={classes.mainDiv}>
         <center>
             <Paper className={classes.root}>
         <Typography variant="h3"><ExitToAppIcon fontSize="large"></ExitToAppIcon></Typography>

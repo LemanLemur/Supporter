@@ -24,15 +24,39 @@ import Jumbotron from 'react-bootstrap/Jumbotron'
 import tileData from './Data/SupportData';
 
 const useStyles = makeStyles(theme => ({
-
+  mobile: {
+    marginBottom: '10px',
+    marginTop: '10px',
+    fontFamily: "Georgia",
+    color: "#3f51b5",
+    textTransform: "uppercase",
+    fontWeight: "bold",
+    fontSize: "15px",
+    [theme.breakpoints.up("md")]: {
+      display: "none"
+    }
+  },
+  desktop: {
+    marginBottom: '20px',
+    marginTop: '20px',
+    fontFamily: "Georgia",
+    color: "#3f51b5",
+    textTransform: "uppercase",
+    fontWeight: "bold",
+    fontSize: "25px",
+    [theme.breakpoints.down("sm")]: {
+      display: "none"
+    }
+  },
   root: {
     display: 'flex',
     flexWrap: 'wrap',
     marginTop: '10px',
     justifyContent: 'space-around',
     overflow: 'hidden',
-    // backgroundColor: "#e9ebf9",
-    // background:  "#e9ebf9" ,
+    [theme.breakpoints.down("sm")]: {
+      width: "90%"
+    }
   },
   gridList: {
     flexWrap: 'nowrap',
@@ -87,14 +111,23 @@ export default function HomeGridList(props) {
       <Paper className={classes.paper}> */}
       <Jumbotron className={classes.paper}>
     <div className={classes.root} data-simplebar>
-    <Typography variant="h3" component="h3" className={classes.typeTitle}>
+    <Typography variant="h3" component="h3" className={classes.desktop}>
       {props.icon === 0 ? <AlarmIcon fontSize="large"/> : ""}
       {props.icon === 1 ? <HealingIcon fontSize="large"/> : ""}
       {props.icon === 2 ? <AirplanemodeActiveIcon fontSize="large"/> : ""}
       {props.icon === 3 ? <CardTravelIcon fontSize="large"/> : ""}
       {" "}{props.descryption}
       </Typography>
-      <GridList className={classes.gridList} cols={3.25}>
+      
+      <Typography variant="h3" component="h3" className={classes.mobile}>
+      {props.icon === 0 ? <AlarmIcon fontSize="small"/> : ""}
+      {props.icon === 1 ? <HealingIcon fontSize="small"/> : ""}
+      {props.icon === 2 ? <AirplanemodeActiveIcon fontSize="small"/> : ""}
+      {props.icon === 3 ? <CardTravelIcon fontSize="small"/> : ""}
+      {" "}{props.descryption}
+      </Typography>
+
+      <GridList className={classes.gridList} cols={2.25}>
         {tileData.map(tile => (
 
           tile.label === props.option ?
@@ -119,7 +152,7 @@ export default function HomeGridList(props) {
               }
             />
           </GridListTile>
-
+          
           :
                     
           <div></div>

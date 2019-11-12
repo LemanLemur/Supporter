@@ -28,6 +28,12 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(3, 2),
     width: "50%",
     marginBottom: "50px",
+    [theme.breakpoints.down("sm")]: {
+      width: "90%"
+    }
+  },
+  mainDiv:{
+    marginTop: "80px"
   },
   margin: {
     margin: theme.spacing(1),
@@ -38,6 +44,9 @@ const useStyles = makeStyles(theme => ({
   title: {
     marginLeft: "25%",
     marginTop: "50px",
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: "5%",
+    }
     },
 
     container: {
@@ -278,7 +287,7 @@ export default function ProfilePage() {
   }
 
   return (
-    <div>
+    <div className={classes.mainDiv}>
       <Typography variant="h3" className={classes.title}>Dane konta</Typography><p></p>
         <center>
             <Paper className={classes.root}>
