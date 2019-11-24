@@ -9,6 +9,7 @@ import ProgressBar from "react-bootstrap/ProgressBar";
 import UserInfo from "./SupportPageComponent/UserInfoComponent";
 import ShareFb from "./ShareFb";
 import Awards from "./SupportPageComponent/AwardsComponent";
+import Payment from "./SupportPageComponent/PaymentComponent";
 
 const useStyles = makeStyles(theme => ({
   mobile: {
@@ -180,13 +181,7 @@ export default function SupportPage(props) {
                   >
                     Obejrzyj Reklamy!
                   </Button>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    className={classes.button}
-                  >
-                    Wesprzyj!
-                  </Button>
+                  <Payment></Payment>
                 </div>
               </center>
 
@@ -263,13 +258,7 @@ export default function SupportPage(props) {
             >
               Obejrzyj Reklamy!
             </Button>
-            <Button
-              variant="contained"
-              color="primary"
-              className={classes.button}
-            >
-              Wesprzyj!
-            </Button>
+            <Payment></Payment>
           </center>
 
           <div>
