@@ -127,7 +127,7 @@ export default function HomeGridList(props) {
       {" "}{props.descryption}
       </Typography>
 
-      <GridList className={classes.gridList} cols={2.25}>
+      <GridList className={classes.gridList} cols={3.25}>
         {tileData.map(tile => (
 
           tile.label === props.option ?

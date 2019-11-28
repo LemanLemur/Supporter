@@ -5,6 +5,8 @@ import HomePage from "./Components/HomePage";
 import SignOutPage from "./Components/SignOutPage";
 import ProfilePage from "./Components/ProfilePage";
 import SupportPage from "./Components/SupportPage";
+import AddSupport from "./Components/AddNewSupport";
+import YourSupportPages from "./Components/YourSupportPages";
 
 function Index() {
   return <HomePage></HomePage>;
@@ -22,6 +24,18 @@ function SignOut() {
   return <SignOutPage></SignOutPage>;
 }
 
+function AddNewAction() {
+  return <AddSupport></AddSupport>;
+}
+
+function YourPages(props) {
+  return <YourSupportPages id={props.match.params.id}></YourSupportPages>;
+}
+
+function EditPage(props) {
+  return <YourSupportPages id={props.match.params.id}></YourSupportPages>;
+}
+
 function AppRouter() {
   return (
     <Router>
@@ -34,7 +48,10 @@ function AppRouter() {
         <Route path="/profile/" component={Profile} />
         <Route path="/support/" component={Support} />
         <Route path="/singout/" component={SignOut} />
+        <Route path="/addNewAction/" component={AddNewAction} />
         <Route path="/supportpage/:id" component={Support} />
+        <Route path="/yourpages/:id" component={YourPages} />
+        <Route path="/editpage/:id" component={EditPage} />
       </div>
     </Router>
   );

@@ -1,9 +1,6 @@
 import React, { useState, useEffect , useCallback} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import PaperSheet from './PaperComponent';
-import SingleLineGridList from './HomeListGrid';
 import { Typography, Paper } from '@material-ui/core';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Button from '@material-ui/core/Button';
 import { Link } from "react-router-dom";
 
@@ -87,12 +84,16 @@ const sex = [
 ];
 
 const profileData =
-  {
-    name: "Bartłomiej Lemański",
+{
+    id: 0,
+    name: "Lucjan Kurczarek",
     logged: true,
-    mail: "bartlem@o2.pl",
-    avatar: "https://img.cinemablend.com/filter:scale/quill/d/e/6/c/9/6/de6c96f1e9871aef148dbc51fb9a5bc90ff25314.jpg?mw=600",
     sex: 0,
+    mail: 'biedne.kotki@gmail.com',
+    avatar: "https://vignette.wikia.nocookie.net/james-camerons-avatar/images/d/d4/Neytiri_Profil.jpg/revision/latest?cb=20100226001342&path-prefix=pl",
+    contactAcces: false,
+    emailAuth: true,
+    idCardAuth: false,
   };
 
   function MediaCard() {
@@ -118,9 +119,11 @@ const profileData =
           </CardContent>
         </CardActionArea>
         <CardActions>
+          <Link to={"/yourpages/"+profileData.id}>
           <Button size="small" color="primary">
             Moje strony
           </Button>
+          </Link>
           <FormDialog handleChangeAvatar={handleChangeAvatar}></FormDialog>
         </CardActions>
       </Card>

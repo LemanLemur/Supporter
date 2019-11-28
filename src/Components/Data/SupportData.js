@@ -38,7 +38,7 @@ const data = [
         value: 99,
         goal: 550,
         label: "home",
-        owner: 0
+        owner: 1
     },
     {
       id: 2,

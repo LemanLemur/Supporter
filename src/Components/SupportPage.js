@@ -10,6 +10,7 @@ import UserInfo from "./SupportPageComponent/UserInfoComponent";
 import ShareFb from "./ShareFb";
 import Awards from "./SupportPageComponent/AwardsComponent";
 import Payment from "./SupportPageComponent/PaymentComponent";
+import VideoAdComponent from "./SupportPageComponent/VideoAdComponent";
 
 const useStyles = makeStyles(theme => ({
   mobile: {
@@ -22,7 +23,7 @@ const useStyles = makeStyles(theme => ({
       display: "none"
     }
   },
-  mainDiv:{
+  mainDiv: {
     marginTop: "80px"
   },
   root: {
@@ -112,7 +113,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down("sm")]: {
       marginLeft: "30px",
       fontSize: "16px",
-      width: "90%",
+      width: "90%"
     }
   },
   con: {
@@ -126,7 +127,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down("sm")]: {
       fontSize: "14px",
       marginLeft: "20px",
-      marginRight: "20px",
+      marginRight: "20px"
     }
   }
 }));
@@ -174,13 +175,7 @@ export default function SupportPage(props) {
 
               <center>
                 <div className={classes.donateButton}>
-                  <Button
-                    variant="contained"
-                    color="secondary"
-                    className={classes.button}
-                  >
-                    Obejrzyj Reklamy!
-                  </Button>
+                  <VideoAdComponent></VideoAdComponent>
                   <Payment></Payment>
                 </div>
               </center>
@@ -251,13 +246,7 @@ export default function SupportPage(props) {
             </Typography>
           </center>
           <center>
-            <Button
-              variant="contained"
-              color="secondary"
-              className={classes.button}
-            >
-              Obejrzyj Reklamy!
-            </Button>
+            <VideoAdComponent></VideoAdComponent>
             <Payment></Payment>
           </center>
 

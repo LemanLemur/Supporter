@@ -226,6 +226,7 @@ export default function PrimarySearchAppBar() {
       onClose={handleMenuClose}
     >
       {signIN ? (<Link to="/profile" className={classes.navLink}><MenuItem> Profil </MenuItem></Link>) : ""}
+      {signIN ? (<Link to="/addNewAction" className={classes.navLink}><MenuItem> Dodaj nową akcję wsparcia </MenuItem></Link>) : ""}
       {signIN ? (<Link to="/singout" className={classes.navLink}><MenuItem onClick={handleSignOut}>  Wyloguj </MenuItem></Link>) : ""}
     </Menu>
   );
@@ -242,6 +243,7 @@ export default function PrimarySearchAppBar() {
       onClose={handleMobileMenuClose}
     >
       {signIN ? (<Link to="/profile" className={classes.navLink}><MenuItem> Profil </MenuItem></Link>) : ""}
+      {signIN ? (<Link to="/addNewAction" className={classes.navLink}><MenuItem> Dodaj nową akcję wsparcia </MenuItem></Link>) : ""}
       {signIN ? (<Link to="/singout" className={classes.navLink}><MenuItem onClick={handleSignOut}>  Wyloguj </MenuItem></Link>) : ""}
     </Menu>
   );

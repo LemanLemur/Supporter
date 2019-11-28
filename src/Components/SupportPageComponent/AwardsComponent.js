@@ -37,13 +37,12 @@ const useStyles = makeStyles(theme => ({
   awardsContent: {
     marginTop: "5px",
     marginBottom: "5px",
-    fontFamily: "Georgia",
+    fontFamily: "Georgia"
   }
 }));
 
-export default function Awards(props) {
+function AwardsCom(props) {
   const classes = useStyles();
-
   return (
     <div className={classes.root}>
       <center>
@@ -51,19 +50,32 @@ export default function Awards(props) {
           {supportData[props.id].awardsTitle}
         </Typography>
       </center>
+             {supportData[props.id].awards.map(data => (
+              <Paper className={classes.paper}>
+                <Typography color="primary" className={classes.awardsGoal}>
+                  {data.goal} zł
+                </Typography>
+                <Divider variant="middle" />
+                <center>
+                  <div className={classes.awardsContent}>{data.content}</div>
+                  <Divider />
+                </center>
+              </Paper>
+            ))}
+              </div>
+  );
+}
 
-      {supportData[props.id].awards.map(data => (
-        <Paper className={classes.paper}>
-          <Typography color="primary" className={classes.awardsGoal}>
-            {data.goal} zł
-          </Typography>
-          <Divider variant="middle"/>
-          <center>
-            <div className={classes.awardsContent}>{data.content}</div>
-            <Divider/>
-          </center>
-        </Paper>
-      ))}
-    </div>
+export default function Awards(props) {
+  let award;
+
+  if(supportData[props.id].awards){
+    award = <AwardsCom id={props.id}></AwardsCom>
+  }
+
+  return (
+    <div>
+      {award}
+      </div>
   );
 }
