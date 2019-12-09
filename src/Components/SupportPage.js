@@ -11,6 +11,9 @@ import ShareFb from "./ShareFb";
 import Awards from "./SupportPageComponent/AwardsComponent";
 import Payment from "./SupportPageComponent/PaymentComponent";
 import VideoAdComponent from "./SupportPageComponent/VideoAdComponent";
+import LastPayments from "./SupportPageComponent/LastPayments";
+import { Divider } from "@material-ui/core";
+import * as R from 'ramda'
 
 const useStyles = makeStyles(theme => ({
   mobile: {
@@ -207,6 +210,8 @@ export default function SupportPage(props) {
                 {homeData[props.id].content}
               </Typography>
               <br></br>
+              <Divider light></Divider>
+              <LastPayments id={props.id}></LastPayments>
             </Grid>
 
             <Grid item xs={4}>
@@ -274,6 +279,9 @@ export default function SupportPage(props) {
           <Typography className={classes.con}>
             {homeData[props.id].content}
           </Typography>
+          <br></br>
+          <Divider light></Divider>
+          <LastPayments id={props.id}></LastPayments>
 
           <UserInfo id={homeData[props.id].owner}></UserInfo>
           <Awards id={props.id}></Awards>

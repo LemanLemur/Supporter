@@ -11,6 +11,7 @@ import { amber, green } from "@material-ui/core/colors";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import SnackbarContent from "@material-ui/core/SnackbarContent";
 import IconButton from "@material-ui/core/IconButton";
+import MenuItem from '@material-ui/core/MenuItem';
 import PropTypes from "prop-types";
 import clsx from "clsx";
 
@@ -101,6 +102,21 @@ const useStyles1 = makeStyles(theme => ({
   }
 }));
 
+const category = [
+  {
+    value: "0",
+    label: "Zdrowie"
+  },
+  {
+    value: "1",
+    label: "Podróż"
+  },
+  {
+    value: "2",
+    label: "Startup"
+  }
+];
+
 function MySnackbarContentWrapper(props) {
   const classes = useStyles1();
   const { className, message, onClose, variant, ...other } = props;
@@ -138,7 +154,7 @@ MySnackbarContentWrapper.propTypes = {
   variant: PropTypes.oneOf(["error", "info", "success", "warning"]).isRequired
 };
 
-export default function ProfilePage() {
+export default function AddNewSupport() {
   const classes = useStyles();
 
   const [isAward, setIsAward] = useState(false);
@@ -155,6 +171,7 @@ export default function ProfilePage() {
   const [titleContent, setTitleContent] = useState("");
   const [content, setContent] = useState("");
   const [title, setTitle] = useState("");
+  const [label, setLabel] = useState("");
 
   function handleAddAwards() {
     setIsAward(true);
@@ -186,6 +203,7 @@ export default function ProfilePage() {
     setTitleContent("");
     setContent("");
     setTitle("");
+    setLabel("");
 
     if (isValid) {
       setOpen(true);
@@ -254,6 +272,14 @@ export default function ProfilePage() {
     [setContent]
   );
 
+  const handleChangeCategory = useCallback(
+    (event) => {
+
+        setLabel(event.target.value);
+    },
+    [setLabel]
+  );
+
   return (
     <div className={classes.mainDiv}>
       <Paper className={classes.root}>
@@ -275,6 +301,28 @@ export default function ProfilePage() {
           margin="normal"
           variant="outlined"
         />
+        <TextField
+          fullWidth
+          id="outlined-select-currency"
+          select
+          label="Kategoria"
+          className={classes.textField}
+          value={label}
+          onChange={handleChangeCategory}
+          SelectProps={{
+            MenuProps: {
+              className: classes.menu
+            }
+          }}
+          margin="normal"
+          variant="outlined"
+        >
+          {category.map(option => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
         <TextField
           fullWidth
           required

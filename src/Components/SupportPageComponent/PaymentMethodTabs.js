@@ -57,6 +57,7 @@ export default function PaymentMethodTabs() {
   const [year, setYear] = useState("");
   const [csv, setCsv] = useState("");
   const [email, setEmail] = useState("");
+  const [amount, setAmount] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -82,6 +83,18 @@ export default function PaymentMethodTabs() {
       }
     },
     [setBlik]
+  );
+
+  const handleChangeAmount = useCallback(
+    event => {
+      if (
+        event.target.value === "" ||
+        (/\d+$/.test(event.target.value))
+      ) {
+        setAmount(event.target.value);
+      }
+    },
+    [setAmount]
   );
 
   const handleChangeCardNum = useCallback(
@@ -231,6 +244,16 @@ export default function PaymentMethodTabs() {
             variant="outlined"
             helperText="3, 4 liczby zd=najdujące się na odwrocie karty!"
           />
+          <TextField
+            id="outlined-error"
+            label="Kwota"
+            className={classes.textField}
+            value={amount}
+            onChange={handleChangeAmount}
+            margin="normal"
+            variant="outlined"
+            helperText="Kwota w PLN"
+          />
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
           <Typography>Płatność czekiem Blik</Typography>
@@ -252,6 +275,16 @@ export default function PaymentMethodTabs() {
             className={classes.textField}
             margin="normal"
             variant="outlined"
+          />
+          <TextField
+            id="outlined-error"
+            label="Kwota"
+            className={classes.textField}
+            value={amount}
+            onChange={handleChangeAmount}
+            margin="normal"
+            variant="outlined"
+            helperText="Kwota w PLN"
           />
         </TabPanel>
       </SwipeableViews>

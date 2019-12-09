@@ -189,6 +189,15 @@ const data = [
       goal: 5000,
       label: "start",
       owner: 0
+    },{
+      id: 66,
+      img: "https://fanigier.net/wp-content/uploads/2017/11/P1020375a.jpg",
+      title: 'Nowa planszówka',
+      author: 'Łukasz',
+      value: 29,
+      goal: 5000,
+      label: "start",
+      owner: 0
     },
   ];
 

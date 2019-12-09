@@ -7,6 +7,7 @@ import ProfilePage from "./Components/ProfilePage";
 import SupportPage from "./Components/SupportPage";
 import AddSupport from "./Components/AddNewSupport";
 import YourSupportPages from "./Components/YourSupportPages";
+import EditSupport from "./Components/EditSupport";
 
 function Index() {
   return <HomePage></HomePage>;
@@ -33,7 +34,7 @@ function YourPages(props) {
 }
 
 function EditPage(props) {
-  return <YourSupportPages id={props.match.params.id}></YourSupportPages>;
+  return <EditSupport id={props.match.params.id}></EditSupport>;
 }
 
 function AppRouter() {
