@@ -8,6 +8,15 @@ import SupportPage from "./Components/SupportPage";
 import AddSupport from "./Components/AddNewSupport";
 import YourSupportPages from "./Components/YourSupportPages";
 import EditSupport from "./Components/EditSupport";
+import PagesOption from "./Components/MainMenuComponent/PagesOption";
+import SignUpPage from "./Components/SignUpPage";
+
+// import { connect } from "react-redux";
+// import { profilesLoad } from "./actions"; 
+import Cookies from "js-cookie";
+import usersData from './Components/Data/UserData';
+import supportData from './Components/Data/SupportData';
+import paymentData from './Components/Data/PaymentData';
 
 function Index() {
   return <HomePage></HomePage>;
@@ -37,8 +46,24 @@ function EditPage(props) {
   return <EditSupport id={props.match.params.id}></EditSupport>;
 }
 
-function AppRouter() {
-  return (
+function Pages(props) {
+  return <PagesOption option={props.match.params.id}></PagesOption>;
+}
+
+function SignUp() {
+  return <SignUpPage></SignUpPage>;
+}
+
+export default class AppRouter extends React.Component {
+
+  componentDidMount() {
+    Cookies.set('UserData', JSON.stringify(usersData));
+    Cookies.set('PaymentData', JSON.stringify(paymentData));
+    window.localStorage.setItem('SupportData', JSON.stringify(supportData));
+  }
+
+  render(){
+    return (
     <Router>
       <div>
         <nav>
@@ -53,9 +78,20 @@ function AppRouter() {
         <Route path="/supportpage/:id" component={Support} />
         <Route path="/yourpages/:id" component={YourPages} />
         <Route path="/editpage/:id" component={EditPage} />
+        <Route path="/pages/:id" component={Pages} />
+        <Route path="/signup/" component={SignUp} />
       </div>
     </Router>
   );
 }
+}
 
-export default AppRouter;
+// const mapStateToProps = state => {
+//   return {
+//     type: 'LOAD_PROFILES',
+//     profiles: state.profiles
+//   }
+// };
+// const mapDispatchToProps = { profilesLoad };
+
+// export const AppRouterContainer = connect(mapStateToProps, mapDispatchToProps)(AppRouter);

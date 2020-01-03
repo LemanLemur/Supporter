@@ -1,11 +1,11 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import PaperSheet from './PaperComponent';
-import HomeGridList from './HomeListGrid';
-import Paper from '@material-ui/core/Paper';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import PaperSheet from "./PaperComponent";
+import Paper from "@material-ui/core/Paper";
+import HomeGrid from "./HomeGrid";
 
 const useStyles = makeStyles(theme => ({
-  mainDiv:{
+  mainDiv: {
     marginTop: "80px"
   },
   root: {
@@ -18,23 +18,23 @@ const useStyles = makeStyles(theme => ({
     }
   },
   m: {
-    marginBottom: '20px',
+    marginBottom: "20px"
   }
 }));
 
 const descryption = [
   {
-    title: "Już prawie to mamy!",
+    title: "Już prawie to mamy!"
   },
   {
-    title: "Pomóż w powrocie do zdrowia!",
+    title: "Pomóż w powrocie do zdrowia!"
   },
   {
-    title: "Pomóż wystartować!",
+    title: "Pomóż wystartować!"
   },
   {
-    title: "Pomóż w podroży!",
-  },
+    title: "Pomóż w podroży!"
+  }
 ];
 
 export default function HomePage() {
@@ -43,14 +43,34 @@ export default function HomePage() {
   return (
     <div className={classes.mainDiv}>
       <PaperSheet className={classes.m}></PaperSheet>
-      
+
       <center>
-      <Paper className={classes.root}>
-      <HomeGridList icon={0} descryption={descryption[0].title} option="home" className={classes.m}></HomeGridList>
-      <HomeGridList icon={1} descryption={descryption[1].title} option="healt" className={classes.m}></HomeGridList>
-      <HomeGridList icon={2} descryption={descryption[2].title} option="start" className={classes.m}></HomeGridList>
-      <HomeGridList icon={3} descryption={descryption[3].title} option="travel" className={classes.m}></HomeGridList>
-      </Paper>
+        <Paper className={classes.root}>
+          <HomeGrid
+            icon={0}
+            descryption={descryption[0].title}
+            option="home"
+            className={classes.m}
+          />
+          <HomeGrid
+            icon={1}
+            descryption={descryption[1].title}
+            option="healt"
+            className={classes.m}
+          />
+          <HomeGrid
+            icon={2}
+            descryption={descryption[2].title}
+            option="start"
+            className={classes.m}
+          />
+          <HomeGrid
+            icon={3}
+            descryption={descryption[3].title}
+            option="travel"
+            className={classes.m}
+          />
+        </Paper>
       </center>
     </div>
   );

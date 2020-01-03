@@ -182,7 +182,7 @@ const data = [
     },
     {
       id: 16,
-      img: "https://fanigier.net/wp-content/uploads/2017/11/P1020375a.jpg",
+      img: "https://static.antyweb.pl/uploads/2017/08/18839514_1612232758858069_4177833694260763688_o-1420x670.jpg",
       title: 'Nowa planszówka',
       author: 'Łukasz',
       value: 29,
@@ -191,12 +191,30 @@ const data = [
       owner: 0
     },{
       id: 66,
-      img: "https://fanigier.net/wp-content/uploads/2017/11/P1020375a.jpg",
+      img: "https://static.antyweb.pl/uploads/2017/08/18839514_1612232758858069_4177833694260763688_o-1420x670.jpg",
       title: 'Nowa planszówka',
       author: 'Łukasz',
       value: 29,
       goal: 5000,
       label: "start",
+      owner: 0
+    },{
+      id: 17,
+      img: "https://static.antyweb.pl/uploads/2017/08/18839514_1612232758858069_4177833694260763688_o-1420x670.jpg",
+      title: 'Nowa planszówka',
+      author: 'Łukasz',
+      value: 97,
+      goal: 5000,
+      label: "home",
+      owner: 0
+    },{
+      id: 18,
+      img: "https://static.antyweb.pl/uploads/2017/08/18839514_1612232758858069_4177833694260763688_o-1420x670.jpg",
+      title: 'Nowa planszówka',
+      author: 'Łukasz',
+      value: 92,
+      goal: 5000,
+      label: "home",
       owner: 0
     },
   ];

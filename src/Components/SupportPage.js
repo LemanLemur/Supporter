@@ -4,7 +4,6 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import homeData from "./Data/SupportData";
 import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import UserInfo from "./SupportPageComponent/UserInfoComponent";
 import ShareFb from "./ShareFb";
@@ -13,7 +12,6 @@ import Payment from "./SupportPageComponent/PaymentComponent";
 import VideoAdComponent from "./SupportPageComponent/VideoAdComponent";
 import LastPayments from "./SupportPageComponent/LastPayments";
 import { Divider } from "@material-ui/core";
-import * as R from 'ramda'
 
 const useStyles = makeStyles(theme => ({
   mobile: {
@@ -63,7 +61,6 @@ const useStyles = makeStyles(theme => ({
     textTransform: "uppercase",
     fontWeight: "bold",
     fontSize: "30px"
-    // textShadow: "2px 2px 8px grey"
   },
   typographyStart: {
     marginTop: "30px",

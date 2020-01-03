@@ -235,6 +235,7 @@ export default function EditSupport(props) {
   function handleAdd() {
     var isValid = false;
     if (img && goal && content && titleContent && title) isValid = true;
+
     setAwardsTitle("");
     setImg("");
     setPreView(false);

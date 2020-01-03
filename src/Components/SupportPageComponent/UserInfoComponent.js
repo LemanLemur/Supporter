@@ -1,9 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import users from '../Data/UserData';
 import { Divider, Paper, Typography } from '@material-ui/core';
 import CheckIcon from '@material-ui/icons/Check';
 import CloseIcon from '@material-ui/icons/Close';
+import Cookies from "js-cookie";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -33,6 +33,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function UserInfo(props) {
   const classes = useStyles();
+  var users = Cookies.getJSON('UserData');
 
   return (
     <div className={classes.root}>

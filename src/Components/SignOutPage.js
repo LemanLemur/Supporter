@@ -1,7 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import PaperSheet from './PaperComponent';
-import SingleLineGridList from './HomeListGrid';
 import { Typography, Paper } from '@material-ui/core';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Button from '@material-ui/core/Button';
@@ -33,54 +31,12 @@ const useStyles = makeStyles(theme => ({
 
 function FormDialog() {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
-
-  function handleClickOpen() {
-    setOpen(true);
-  }
-
-  function handleClose() {
-    setOpen(false);
-  }
 
   return (
     <div>
       <Link to="/home"><Button variant="outlined" size="large" color="primary" className={classes.margin}>
         Strona Główna
       </Button></Link>
-      <Button variant="outlined" size="large" color="primary" className={classes.margin} onClick={handleClickOpen}>
-        Zaloguj
-      </Button>
-      <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Logowanie</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            Podaj swój login i hasło aby się zalogować.
-          </DialogContentText>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="Login"
-            label="Login"
-            fullWidth
-          />
-          <TextField
-            margin="dense"
-            id="Hasło"
-            label="Hasło"
-            type="password"
-            fullWidth
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Anuluj
-          </Button>
-          <Button onClick={handleClose} color="primary">
-            Zaloguj
-          </Button>
-        </DialogActions>
-      </Dialog>
     </div>
   );
 }

@@ -43,8 +43,14 @@ export default function VideoAdComponent() {
   const [videoEnded, setVideoEnded] = React.useState(false);
 
   const onFocus = () => {
+    console.log("open" + open);
     if (open) {
       setPlay(true);
+    }
+    
+    console.log("open2" + open);
+    if (!open) {
+      setPlay(false);
     }
   };
 
@@ -62,10 +68,13 @@ export default function VideoAdComponent() {
     setPlay(true);
   };
 
-  const handleClose = () => {
-    setOpen(false);
-    setPlay(false);
-  };
+  const handleClose = useCallback(
+    (event) => {
+      setOpen(false);
+      setPlay(false);
+    },
+    [setOpen, setPlay]
+  );
  
   const handleOnEnd = () => {
     setOpen(false);

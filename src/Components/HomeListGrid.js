@@ -6,8 +6,6 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import LocalAtmOutlinedIcon from '@material-ui/icons/LocalAtmOutlined';
 import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
-import CustomizedSlider from './SliderGoal';
 
 import AlarmIcon from '@material-ui/icons/Alarm';
 import HealingIcon from '@material-ui/icons/Healing';

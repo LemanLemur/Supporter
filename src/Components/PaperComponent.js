@@ -1,9 +1,9 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
 
-import ProgressBar from 'react-bootstrap/ProgressBar'
+import ProgressBar from "react-bootstrap/ProgressBar";
 
 const useStyles = makeStyles(theme => ({
   mobile: {
@@ -19,19 +19,22 @@ const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
     width: "75%",
+    marginBottom: "20px",
+    marginTop: "20px",
     [theme.breakpoints.down("sm")]: {
       width: "90%"
     }
   },
-  typeTitle: {
-    marginLeft: "100px",
-    marginRight: "100px",
-    marginBottom: "25px"
+  title: {
+    fontFamily: "Georgia",
+    fontWeight: "bold",
+    fontSize: "35px"
   },
-  type: {
-    marginLeft: "100px",
-    marginRight: "100px",
-  },
+  content: {
+    fontFamily: "Georgia",
+    marginTop: "15px",
+    fontSize: "20px"
+  }
 }));
 
 export default function PaperSheet() {
@@ -39,22 +42,28 @@ export default function PaperSheet() {
 
   return (
     <div>
-    <div className={classes.desktop}>
-      <center>
-      <Paper className={classes.root}>
-          <Typography variant="h4">Witaj w supporter!</Typography>
-          <Typography variant="h6">Jeżeli chcesz wspomóc akceję kliknij na ikonę dolara aby zostać przekierowany do jej strony.</Typography>
-      </Paper>
-      </center>
+      <div className={classes.desktop}>
+        <center>
+          <Paper className={classes.root}>
+            <div className={classes.title}>Witaj w supporter!</div>
+            <div className={classes.content}>
+              Jeżeli chcesz wspomóc akcję kliknij na jej kartę lub na kartę z
+              trzema kropkami aby zobaczyć więcej akcji w tej kategorii.
+            </div>
+          </Paper>
+        </center>
+      </div>
+      <div className={classes.mobile}>
+        <center>
+          <Paper className={classes.root}>
+            <div className={classes.title}>Witaj w supporter!</div>
+            <div className={classes.content}>
+              Jeżeli chcesz wspomóc akcję kliknij na jej kartę lub na kartę z
+              trzema kropkami aby zobaczyć więcej akcji w tej kategorii.
+            </div>
+          </Paper>
+        </center>
+      </div>
     </div>
-    <div className={classes.mobile}>
-    <center>
-    <Paper className={classes.root}>
-        <Typography variant="h6">Witaj w supporter!</Typography>
-        <Typography variant="h7">Jeżeli chcesz wspomóc akceję kliknij na ikonę dolara aby zostać przekierowany do jej strony.</Typography>
-    </Paper>
-    </center>
-  </div>
-  </div>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Paper, Typography, Divider, Button } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
@@ -11,9 +11,11 @@ import { amber, green } from "@material-ui/core/colors";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import SnackbarContent from "@material-ui/core/SnackbarContent";
 import IconButton from "@material-ui/core/IconButton";
-import MenuItem from '@material-ui/core/MenuItem';
+import MenuItem from "@material-ui/core/MenuItem";
 import PropTypes from "prop-types";
 import clsx from "clsx";
+
+import Cookies from "js-cookie";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -173,6 +175,12 @@ export default function AddNewSupport() {
   const [title, setTitle] = useState("");
   const [label, setLabel] = useState("");
 
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+
   function handleAddAwards() {
     setIsAward(true);
     setAwardsCount(awardsCount + 1);
@@ -194,11 +202,49 @@ export default function AddNewSupport() {
   function handleAdd() {
     var isValid = false;
     if (img && goal && content && titleContent && title) isValid = true;
+
+    if(isValid){
+    let newSupport
+    // if(awardsTitle && awards){
+    // newSupport = {
+    //   'id': getRandomInt(20, 200000) + getRandomInt(20, 20000),
+    //   'img': img,
+    //   'title': title,
+    //   'value': 0,
+    //   'goal': goal,
+    //   'contentTitle': titleContent,
+    //   'content': content,
+    //   'label': label,
+    //   'owner': Cookies.getJSON("loggedUser").id,
+    //   'awardsTitle': awardsTitle,
+    //   'awards': awards
+    // };
+    // }else{
+      newSupport = {
+        'id': getRandomInt(20, 200000) + getRandomInt(20, 20000),
+        'img': img,
+        'title': title,
+        'value': 0,
+        'goal': goal,
+        'contentTitle': titleContent,
+        'content': content,
+        'label': label,
+        'owner': Cookies.getJSON("loggedUser").id
+      };
+    // }
+
+    let win = JSON.parse(window.localStorage.getItem('SupportData'));
+    win.push(newSupport);
+    console.log(win);
+    window.localStorage.setItem('SupportData', JSON.stringify(win));
+    }
+
     setAwardsTitle("");
     setImg("");
     setPreView(false);
     setIsImg(false);
     setIsAward(false);
+    setAwards([]);
     setGoal("");
     setTitleContent("");
     setContent("");
@@ -273,9 +319,8 @@ export default function AddNewSupport() {
   );
 
   const handleChangeCategory = useCallback(
-    (event) => {
-
-        setLabel(event.target.value);
+    event => {
+      setLabel(event.target.value);
     },
     [setLabel]
   );
