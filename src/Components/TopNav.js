@@ -416,7 +416,7 @@ export default function PrimarySearchAppBar() {
           <MenuItem onClick={handleSignOut}> Wyloguj </MenuItem>
         </Link>
       ) : (
-        ""
+          <MenuItem onClick={handleProfileMenuOpen}> Zaloguj </MenuItem>
       )}
     </Menu>
   );

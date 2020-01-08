@@ -487,14 +487,14 @@ export default function AddNewSupport() {
         >
           Dodaj nagrodę
         </Button>
-        <Button
+        {/* <Button
           variant="outlined"
           onClick={handlePreView}
           color="secondary"
           className={classes.buttonR}
         >
           Podgląd
-        </Button>
+        </Button> */}
 
         <Button
           variant="outlined"
