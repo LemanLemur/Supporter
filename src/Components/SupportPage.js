@@ -1,8 +1,8 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import homeData from "./Data/SupportData";
+// import homeData from "./Data/SupportData";
 import Grid from "@material-ui/core/Grid";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import UserInfo from "./SupportPageComponent/UserInfoComponent";
@@ -12,6 +12,8 @@ import Payment from "./SupportPageComponent/PaymentComponent";
 import VideoAdComponent from "./SupportPageComponent/VideoAdComponent";
 import LastPayments from "./SupportPageComponent/LastPayments";
 import { Divider } from "@material-ui/core";
+
+var homeData = JSON.parse(window.localStorage.getItem('SupportData'));
 
 const useStyles = makeStyles(theme => ({
   mobile: {
@@ -134,12 +136,25 @@ const useStyles = makeStyles(theme => ({
 
 export default function SupportPage(props) {
   const classes = useStyles();
+  var count;
+
+  function prepareTile() {
+    homeData = JSON.parse(window.localStorage.getItem('SupportData'));
+    var tmpCount = 0;
+    homeData.forEach(element => {
+      if (element.id == props.id) {
+        count=tmpCount;
+      }
+      tmpCount++;
+    });
+  }
 
   return (
     <div className={classes.mainDiv}>
+    {prepareTile()}
       <div align="center">
         <Typography className={classes.title}>
-          {homeData[props.id].title}
+          {homeData[count].title}
         </Typography>
       </div>
       <div className={classes.desktop}>
@@ -148,16 +163,16 @@ export default function SupportPage(props) {
             <Grid item xs={6}>
               <img
                 className={classes.mainImg}
-                src={homeData[props.id].img}
-                alt={homeData[props.id].title}
+                src={homeData[count].img}
+                alt={homeData[count].title}
               />
             </Grid>
             <Grid item xs={6}>
               <center>
                 <Typography className={classes.typographyStart}>
                   Zebrano:{" "}
-                  {(homeData[props.id].goal * homeData[props.id].value) / 100}{" "}
-                  zł / {homeData[props.id].goal} zł
+                  {(homeData[count].goal * homeData[count].value) / 100}{" "}
+                  zł / {homeData[count].goal} zł
                 </Typography>
               </center>
 
@@ -166,8 +181,8 @@ export default function SupportPage(props) {
                   <ProgressBar
                     striped
                     variant="success"
-                    now={homeData[props.id].value}
-                    label={`${homeData[props.id].value}%`}
+                    now={homeData[count].value}
+                    label={`${homeData[count].value}%`}
                     className={classes.margin}
                   />
                 </Typography>
@@ -201,10 +216,10 @@ export default function SupportPage(props) {
             <Grid item xs={8}>
               <br></br>
               <Typography className={classes.conTitle}>
-                {homeData[props.id].contentTitle}
+                {homeData[count].contentTitle}
               </Typography>
               <Typography className={classes.con}>
-                {homeData[props.id].content}
+                {homeData[count].content}
               </Typography>
               <br></br>
               <Divider light></Divider>
@@ -215,7 +230,7 @@ export default function SupportPage(props) {
               <ShareFb
                 url={"https://supporter.netlify.com/supportpage/" + props.id}
               ></ShareFb>
-              <UserInfo id={homeData[props.id].owner}></UserInfo>
+              <UserInfo id={homeData[count].owner}></UserInfo>
               <Awards id={props.id}></Awards>
             </Grid>
           </Grid>
@@ -226,14 +241,14 @@ export default function SupportPage(props) {
         <Paper className={classes.root}>
           <img
             className={classes.mainImg}
-            src={homeData[props.id].img}
-            alt={homeData[props.id].title}
+            src={homeData[count].img}
+            alt={homeData[count].title}
           />
           <center>
             <Typography className={classes.typographyStart}>
               Zebrano:{" "}
-              {(homeData[props.id].goal * homeData[props.id].value) / 100} zł /{" "}
-              {homeData[props.id].goal} zł
+              {(homeData[count].goal * homeData[count].value) / 100} zł /{" "}
+              {homeData[count].goal} zł
             </Typography>
           </center>
           <center>
@@ -241,8 +256,8 @@ export default function SupportPage(props) {
               <ProgressBar
                 striped
                 variant="success"
-                now={homeData[props.id].value}
-                label={`${homeData[props.id].value}%`}
+                now={homeData[count].value}
+                label={`${homeData[count].value}%`}
                 className={classes.margin}
               />
             </Typography>
@@ -271,19 +286,20 @@ export default function SupportPage(props) {
         </Paper>
         <Paper className={classes.conPaper}>
           <Typography className={classes.conTitle}>
-            {homeData[props.id].contentTitle}
+            {homeData[count].contentTitle}
           </Typography>
           <Typography className={classes.con}>
-            {homeData[props.id].content}
+            {homeData[count].content}
           </Typography>
           <br></br>
           <Divider light></Divider>
           <LastPayments id={props.id}></LastPayments>
 
-          <UserInfo id={homeData[props.id].owner}></UserInfo>
+          <UserInfo id={homeData[count].owner}></UserInfo>
           <Awards id={props.id}></Awards>
         </Paper>
       </div>
     </div>
   );
 }
+

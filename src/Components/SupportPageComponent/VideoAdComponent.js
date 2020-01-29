@@ -10,8 +10,8 @@ import Slide from "@material-ui/core/Slide";
 import ReactPlayer from "react-player";
 
 import Fab from "@material-ui/core/Fab";
-import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
-import PauseCircleOutlineIcon from '@material-ui/icons/PauseCircleOutline';
+import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
+import PauseCircleOutlineIcon from "@material-ui/icons/PauseCircleOutline";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -36,6 +36,8 @@ const useStyles = makeStyles(theme => ({
   dialog: {}
 }));
 
+const URL = "http://media.w3.org/2010/05/sintel/trailer.mp4";
+
 export default function VideoAdComponent() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
@@ -43,13 +45,9 @@ export default function VideoAdComponent() {
   const [videoEnded, setVideoEnded] = React.useState(false);
 
   const onFocus = () => {
-    console.log("open" + open);
     if (open) {
       setPlay(true);
-    }
-    
-    console.log("open2" + open);
-    if (!open) {
+    } else {
       setPlay(false);
     }
   };
@@ -69,13 +67,13 @@ export default function VideoAdComponent() {
   };
 
   const handleClose = useCallback(
-    (event) => {
+    event => {
       setOpen(false);
       setPlay(false);
     },
     [setOpen, setPlay]
   );
- 
+
   const handleOnEnd = () => {
     setOpen(false);
     setVideoEnded(true);
@@ -114,24 +112,23 @@ export default function VideoAdComponent() {
               <div>
                 <ReactPlayer
                   playing={play}
-                  url="http://media.w3.org/2010/05/sintel/trailer.mp4"
+                  url={URL}
                   width="100%"
                   height="100%"
-                  // controls={true}
                   onEnded={handleOnEnd}
                 />
                 <center>
-                <Fab color={play ? "secondary" : "primary"} aria-label="edit" onClick={handleClickPlayPause}>
-                  {play ?
-                  (
-                    <PauseCircleOutlineIcon/>
-                  )
-                :
-                (
-                  <PlayCircleOutlineIcon />
-                  )
-                }
-                </Fab>
+                  <Fab
+                    color={play ? "secondary" : "primary"}
+                    aria-label="edit"
+                    onClick={handleClickPlayPause}
+                  >
+                    {play ? (
+                      <PauseCircleOutlineIcon />
+                    ) : (
+                      <PlayCircleOutlineIcon />
+                    )}
+                  </Fab>
                 </center>
               </div>
             )}

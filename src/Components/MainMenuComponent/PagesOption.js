@@ -11,8 +11,10 @@ import CardTravelIcon from "@material-ui/icons/CardTravel";
 
 import { Link } from "react-router-dom";
 
-import tileData from "../Data/SupportData";
+// import tileData from "../Data/SupportData";
 import { Divider, Paper } from "@material-ui/core";
+
+var tileData = JSON.parse(window.localStorage.getItem('SupportData'));
 
 const useStyles = makeStyles(theme => ({
   mobile: {
@@ -83,6 +85,7 @@ export default function HomeGrid(props) {
   var icon, content;
 
   function prepareTile() {
+    tileData = JSON.parse(window.localStorage.getItem('SupportData'));
     tileData.forEach(element => {
       if (element.label == props.option) {
         tileOption.push(element);

@@ -14,7 +14,9 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuItem from "@material-ui/core/MenuItem";
 import PropTypes from "prop-types";
 import clsx from "clsx";
-import homeData from "./Data/SupportData";
+// import homeData from "./Data/SupportData";
+
+var homeData = JSON.parse(window.localStorage.getItem('SupportData'));
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -180,6 +182,11 @@ export default function EditSupport(props) {
   const [title, setTitle] = useState("");
   const [label, setLabel] = useState("");
 
+  const [id, setId] = useState("");
+  const [author, setAuthor] = useState("");
+  const [value, setValue] = useState("");
+  const [owner, setOwner] = useState("");
+
   useEffect(() => {
       tmpcount=0;
       homeData.forEach(element => {
@@ -195,6 +202,11 @@ export default function EditSupport(props) {
     setTitleContent(homeData[count].contentTitle);
     setContent(homeData[count].content);
     setTitle(homeData[count].title);
+
+    setId(homeData[count].id);
+    setAuthor(homeData[count].author);
+    setValue(homeData[count].value);
+    setOwner(homeData[count].owner);
 
     if(homeData[count].label == "travel"){
         setLabel(1)
@@ -236,6 +248,24 @@ export default function EditSupport(props) {
     var isValid = false;
     if (img && goal && content && titleContent && title) isValid = true;
 
+    var editedData = [];
+
+    editedData.push({
+      id: id,
+      img: img,
+      title: title,
+      author: author,
+      value: value,
+      goal: goal,
+      contentTitle: titleContent,
+      content: content,
+      label: label,
+      owner: owner,
+      awardsTitle: awardsTitle,
+      awards: awards,
+    });
+    console.log(editedData);
+
     setAwardsTitle("");
     setImg("");
     setPreView(false);
@@ -250,6 +280,17 @@ export default function EditSupport(props) {
 
     if (isValid) {
       setOpen(true);
+      var newData = [];
+      homeData.forEach(element => {
+        if(element.id == props.id){
+          newData.push(editedData);
+        }else{
+          newData.push(element);
+        }
+        tmpcount++;
+      });
+      // window.localStorage.setItem('SupportData', JSON.stringify(newData));
+      // console.log(window.localStorage.getItem('SupportData'));
     } else {
       setOpenWrong(true);
     }

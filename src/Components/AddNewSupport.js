@@ -106,15 +106,15 @@ const useStyles1 = makeStyles(theme => ({
 
 const category = [
   {
-    value: "0",
+    value: "health",
     label: "Zdrowie"
   },
   {
-    value: "1",
+    value: "travel",
     label: "Podróż"
   },
   {
-    value: "2",
+    value: "start",
     label: "Startup"
   }
 ];
@@ -202,6 +202,7 @@ export default function AddNewSupport() {
   function handleAdd() {
     var isValid = false;
     if (img && goal && content && titleContent && title) isValid = true;
+    let win = JSON.parse(window.localStorage.getItem('SupportData'));
 
     if(isValid){
     let newSupport
@@ -233,10 +234,8 @@ export default function AddNewSupport() {
       };
     // }
 
-    let win = JSON.parse(window.localStorage.getItem('SupportData'));
     win.push(newSupport);
     console.log(win);
-    window.localStorage.setItem('SupportData', JSON.stringify(win));
     }
 
     setAwardsTitle("");
@@ -253,6 +252,7 @@ export default function AddNewSupport() {
 
     if (isValid) {
       setOpen(true);
+      window.localStorage.setItem('SupportData', JSON.stringify(win));
     } else {
       setOpenWrong(true);
     }

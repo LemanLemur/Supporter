@@ -194,7 +194,7 @@ export default function SignUpPage() {
       if (!event.target.value) {
         setMailValid(false);
       } else if (
-        !/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(event.target.value)
+        !/^[a-zA-Z0-9.]+@[a-zA-Z0-9.]+\.[A-Za-z]+$/.test(event.target.value)
       ) {
         setMailValid(false);
       } else {

@@ -44,6 +44,7 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     fontFamily: "Georgia",
+    height: "45px",
     color: "green",
     textTransform: "uppercase",
     fontWeight: "bold",
@@ -51,6 +52,7 @@ const useStyles = makeStyles(theme => ({
   },
   titleHover: {
     fontFamily: "Georgia",
+    height: "45px",
     color: "#3f51b5",
     textTransform: "uppercase",
     fontWeight: "bold",

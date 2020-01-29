@@ -55,7 +55,7 @@ export default function UserInfo(props) {
         return tmp.supportPgaeId == id;
       })
     );
-  }, [setTmpData]);
+  }, [id, setTmpData]);
 
   return (
     <div className={classes.root}>

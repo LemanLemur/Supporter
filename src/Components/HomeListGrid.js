@@ -1,5 +1,5 @@
 import React from 'react';
-import { lighten, makeStyles, withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
@@ -19,7 +19,9 @@ import ProgressBar from 'react-bootstrap/ProgressBar'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Jumbotron from 'react-bootstrap/Jumbotron'
 
-import tileData from './Data/SupportData';
+// import tileData from './Data/SupportData';
+
+var tileData = JSON.parse(window.localStorage.getItem('SupportData'));
 
 const useStyles = makeStyles(theme => ({
   mobile: {
